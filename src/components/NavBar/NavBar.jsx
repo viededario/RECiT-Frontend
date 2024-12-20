@@ -8,7 +8,7 @@ const NavBar = ({ user, handleSignout }) => {
           <ul>
             <li><Link to="/">Home</Link></li>
             <li><Link to="" onClick={handleSignout}>Sign Out</Link></li>
-            <li><Link to="/recommendations/new">New Recommedation</Link></li>
+            <li><Link to="/recommendations/new">New Recommendation</Link></li>
           </ul>
         </nav>
       ) : (
@@ -20,7 +20,7 @@ const NavBar = ({ user, handleSignout }) => {
         </nav>
       )}
     </>
-  )
+  );
 }
 
 export default NavBar;
