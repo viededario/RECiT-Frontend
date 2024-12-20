@@ -15,12 +15,12 @@ import RecommendationList from './components/recommendationList/RecommendationLi
 const App = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState(authService.getUser())  
-  const [recommendations, setrecommendations] = useState([]);
+  const [recommendations, setRecommendations] = useState([]);
 
   useEffect(() => {
     const fetchAllRecommendations = async () => {
       const recommendationsData = await recommendationService.index();
-      setrecommendations(recommendations);
+      setRecommendations(recommendations);
     };
     if (user) fetchAllRecommendations();
   }, [user]);

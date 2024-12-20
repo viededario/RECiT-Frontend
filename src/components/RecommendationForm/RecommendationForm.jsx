@@ -8,7 +8,7 @@ const RecommendationForm = (props) => {
   const { recommendationId } = useParams();
   const [formData, setFormData] = useState({
     title: "",
-    category: "",
+    category: "Books",
     content: "",
   });
 
