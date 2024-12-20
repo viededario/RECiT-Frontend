@@ -29,6 +29,34 @@ const create = async (recommendationFormData) => {
       console.log(error);
     }
   };
+
+  const show = async (RecommendationId) => {
+    try {
+      const res = await fetch(`${BASE_URL}/${RecommendationId}`, {
+        headers: { Authorization: `Bearer ${localStorage.getItem('token')}`},
+      });
+      return res.json();
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+
+  const createComment = async (recommendationId, commentFormData) => {
+    try {
+      const res = await fetch(`${BASE_URL}/${recommendationId}/comments`, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+          'content-type': 'application/json',
+        },
+        body: JSON.stringify(commentFormData),
+      });
+      return res.json();
+    } catch (error) {
+      console.log(error);
+    }
+  };
   
-  export { create, index };
+  export { index, create, show, createComment };
   

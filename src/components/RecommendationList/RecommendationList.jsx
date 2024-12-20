@@ -5,7 +5,7 @@ export const RecommendationList = (props) => {
   return (
 <main>
 {props.recommendations.map((recommendation) => (
-    <Link key={recommendation._id} to={`/recommendations/${recommendation.id}` }>
+    <Link key={recommendation._id} to={`/recommendations/${recommendation._id}` }>
         <article>
             <header>
                 <h2>{recommendation.title}</h2>

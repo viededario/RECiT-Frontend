@@ -9,6 +9,7 @@ import RecommendationForm from './components/RecommendationForm/RecommendationFo
 import * as recommendationService from './services/recommendationService';
 import * as authService from '../src/services/authService'; 
 import RecommendationList from './components/recommendationList/RecommendationList';
+import RecommendationDetails from './components/RecommendationDetails/recommendationDetails';
 
 
 
@@ -46,6 +47,8 @@ const handleAddRecommendation = async (recommendationFormData) => {
           <Route path="/" element={<Dashboard user={user} />} />
           <Route path="/recommendations/new" element={<RecommendationForm handleAddRecommendation={handleAddRecommendation} />} />
           <Route path="/recommendations" element={<RecommendationList recommendations={recommendations} /> } />
+          <Route path="/recommendations/:recommendationId" element={<RecommendationDetails  /> } />
+
           </>
           
         ) : (
