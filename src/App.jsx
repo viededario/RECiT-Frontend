@@ -20,7 +20,7 @@ const App = () => {
   useEffect(() => {
     const fetchAllRecommendations = async () => {
       const recommendationsData = await recommendationService.index();
-      setrecommendations(recommendations);
+      setRecommendations(recommendations);
     };
     if (user) fetchAllRecommendations();
   }, [user]);
