@@ -1,0 +1,97 @@
+/* Global reset */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9; /* Light background */
+    color: #333; /* Neutral text color */
+  }
+  
+  /* Main container */
+  main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    background-color: #f3f4f6; /* Slightly darker background */
+  }
+  
+  /* Landing content */
+  .landing-content {
+    text-align: center;
+    max-width: 600px;
+    padding: 2rem;
+    background-color: white; /* Card-style background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    border-radius: 8px;
+  }
+  
+  /* Title */
+  .landing-title h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+  }
+  
+  /* Subtitle */
+  .landing-auth h2 {
+    font-size: 1.5rem;
+    color: #555;
+    margin-bottom: 0.5rem;
+  }
+  
+  .landing-auth h3 {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Links container */
+  .landing-auth-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  /* Button styles (used for both signup and signin) */
+  .landing-button {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .landing-button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .landing-content {
+      padding: 1.5rem;
+    }
+  
+    .landing-title h1 {
+      font-size: 2rem;
+    }
+  
+    .landing-auth h2 {
+      font-size: 1.25rem;
+    }
+  
+    .landing-auth h3 {
+      font-size: 0.9rem;
+    }
+  
+    .landing-button {
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+    }
+  }
+  
