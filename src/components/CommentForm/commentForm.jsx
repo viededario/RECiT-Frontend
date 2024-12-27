@@ -8,7 +8,7 @@ const CommentForm = (props) => {
     const handleChange = (evt) => {
         setFormData({...formData, [evt.target.name]: evt.target.value});
     };
-const handleSubmit = (evt) => {
+    const handleSubmit = (evt) => {
         evt.preventDefault();
         props.handleAddComment(formData)
         setFormData({text: ''})
@@ -18,12 +18,12 @@ const handleSubmit = (evt) => {
         <form onSubmit={handleSubmit}>
             <label htmlFor="text-input"> Your Comment:</label>
             <textarea
-            required
-            type = "text"
-            name = "text"
-            id = "text-input"
-            value = {formData.text}
-            onChange = {handleChange}
+                required
+                type="text"
+                name="text"
+                id="text-input"
+                value={formData.text}
+                onChange={handleChange}
             />
             <button type="submit">Submit Comment</button>
 

@@ -57,19 +57,17 @@ const RecommendationDetails = (props) => {
       <section>
         <h2>Comments</h2>
         <CommentForm handleAddComment={handleAddComment} />
-        {!recommendation.comments.length && <p>There are no comments.</p>}
-        {recommendation.comments.map((comment) => {
-          <article key={comment._id}>
-            <header>
+        {recommendation.comments.length === 0 && <p>No comments yet</p>}
+        {recommendation.comments.length > 0 &&
+          recommendation.comments.map((comment) => (
+            <div key={comment._id}>
+              <p>{comment.text}</p>
               <p>
-                {comment.author?.username || "Unknown"} posted on
+                {comment.author.username} posted on
                 {new Date(comment.createdAt).toLocaleDateString()}
               </p>
-            </header>
-            <p>{comment.text}</p>
-          </article>;
-        })}
-        ;
+            </div>
+          ))}
       </section>
     </main>
   );

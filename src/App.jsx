@@ -44,6 +44,19 @@ const handleDeleteRecommendation = async (recommendationId) => {
   navigate('/recommendations');
 };
 
+const handleAddComment = async (recommendationId, commentFormData) => {
+  const newComment = await recommendationService.createComment(recommendationId, commentFormData);
+  console.log('newComment', newComment);
+  const updatedRecommendations = recommendations.map((recommendation) => {
+    if (recommendation._id === recommendationId) {
+      return { ...recommendation, comments: [...recommendation.comments, newComment] };
+    }
+    return recommendation;
+  });
+  setRecommendations(updatedRecommendations);
+  navigate(`/recommendations`);
+};
+
   return (
     <>
     <AuthedUserContext.Provider value={user}>
@@ -55,7 +68,7 @@ const handleDeleteRecommendation = async (recommendationId) => {
           <Route path="/recommendations/new" element={<RecommendationForm handleAddRecommendation={handleAddRecommendation} />} />
           <Route path="/recommendations" element={<RecommendationList recommendations={recommendations} /> } />
           <Route path="/recommendations/:recommendationId" element={<RecommendationDetails handleDeleteRecommendation={handleDeleteRecommendation} />} />
-
+          <Route path="/recommendations/:recommendationId/comments" element={<RecommendationDetails handleAddComment={handleAddComment} />} />
         </>
           
         ) : (
