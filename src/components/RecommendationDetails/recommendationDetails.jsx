@@ -42,6 +42,7 @@ const RecommendationDetails = (props) => {
         <p>
           {recommendation.author.username} posted on
           {new Date(recommendation.createdAt).toLocaleDateString()}
+          {new Date(recommendation.createdAt).toLocaleTimeString()}
         </p>
         {recommendation.author._id === user._id && (
           <>
@@ -65,6 +66,7 @@ const RecommendationDetails = (props) => {
               <p>
                 {comment.author.username} posted on
                 {new Date(comment.createdAt).toLocaleDateString()}
+                {new Date(comment.createdAt).toLocaleTimeString()}
               </p>
             </div>
           ))}
