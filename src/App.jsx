@@ -11,6 +11,7 @@ import * as authService from '../src/services/authService';
 import RecommendationList from './components/recommendationList/RecommendationList';
 import RecommendationDetails from './components/RecommendationDetails/recommendationDetails';
 
+export const AuthedUserContext = createContext(null);
 
 
 const App = () => {
@@ -37,9 +38,15 @@ const handleAddRecommendation = async (recommendationFormData) => {
   navigate('/recommendations');
 };
 
+const handleDeleteRecommendation = async (recommendationId) => {
+  console.log('recommendationId', recommendationId);
+  setRecommendations(recommendations.filter((recommendation) => recommendation._id !== recommendationId));
+  navigate('/recommendations');
+};
 
   return (
     <>
+    <AuthedUserContext.Provider value={user}>
       <NavBar user={user} handleSignout={handleSignout} />
       <Routes>
         { user ? (
@@ -47,9 +54,9 @@ const handleAddRecommendation = async (recommendationFormData) => {
           <Route path="/" element={<Dashboard user={user} />} />
           <Route path="/recommendations/new" element={<RecommendationForm handleAddRecommendation={handleAddRecommendation} />} />
           <Route path="/recommendations" element={<RecommendationList recommendations={recommendations} /> } />
-          <Route path="/recommendations/:recommendationId" element={<RecommendationDetails  /> } />
+          <Route path="/recommendations/:recommendationId" element={<RecommendationDetails handleDeleteRecommendation={handleDeleteRecommendation} />} />
 
-          </>
+        </>
           
         ) : (
 
@@ -60,6 +67,7 @@ const handleAddRecommendation = async (recommendationFormData) => {
           <Route path='/signin' element={<SigninForm setUser={setUser} />} />
           <Route path="/recommendations/new" element={<h1>New Recommendation</h1>} />
       </Routes>
+      </AuthedUserContext.Provider>
     </>
   );
 };

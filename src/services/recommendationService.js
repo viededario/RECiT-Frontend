@@ -57,6 +57,20 @@ const create = async (recommendationFormData) => {
       console.log(error);
     }
   };
+
+  const deleteRecommendation = async (recommendationId) => {
+    try {
+      const res = await fetch(`${BASE_URL}/${recommendationId}`, {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+      });
+      return res.json();
+    } catch (error) {
+      console.log(error);
+    }
+  };
   
-  export { index, create, show, createComment };
+  export { index, create, show, createComment, deleteRecommendation };
   
