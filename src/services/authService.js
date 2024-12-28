@@ -21,11 +21,13 @@ const signup = async (formData) => {
 
   const signin = async (user) => {
     try {
+      console.log(BACKEND_URL, user);
       const res = await fetch(`${BACKEND_URL}/users/signin`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(user),
       });
+     
       const json = await res.json();
   
       if (json.error) {

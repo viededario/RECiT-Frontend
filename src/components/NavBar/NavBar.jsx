@@ -4,12 +4,14 @@ import './NavBar.css';
 const NavBar = ({ user, handleSignout }) => {
   return (
     <>
+
       {user ? (
         <nav className="navbar">
           <ul className="nav-list">
             <div className="nav-content">
             <li className="nav-item"><Link to="/" className="recit-logo">RECiT</Link></li>
               <li className="nav-item"><Link to="/">Home</Link></li>
+             <li><Link to="/recommendations/new">New Recommendation</Link></li>
             </div>
             <div className="nav-auth">
             <li className="nav-item"><Link to="" onClick={handleSignout}>Sign Out</Link></li>
@@ -34,5 +36,6 @@ const NavBar = ({ user, handleSignout }) => {
     </>
   );
 };
+
 
 export default NavBar;
