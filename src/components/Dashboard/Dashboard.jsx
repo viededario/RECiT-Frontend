@@ -1,13 +1,16 @@
-// src/components/Dashboard.jsx
+import './Dashboard.css'
 
 const Dashboard = ({ user }) => {
     return (
       <main>
+        <div className='dashboard-content'>
+        <div className='dashboard-welcome-message'>
         <h1>Welcome, {user.username}</h1>
+        </div>
         <p>
-          This is the dashboard page where you, and only you, can see a dashboard
-          of all of your things.
+          See today's most liked and unliked RECs below
         </p>
+        </div>
       </main>
     );
   };

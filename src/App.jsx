@@ -5,6 +5,7 @@ import Landing from './components/Landing/Landing';
 import Dashboard from './components/Dashboard/Dashboard';
 import SignupForm from './components/SignupForm/SignupForm';
 import SigninForm from './components/SigninForm/SigninForm';
+
 import RecommendationForm from './components/RecommendationForm/RecommendationForm';
 import * as recommendationService from './services/recommendationService';
 import * as authService from '../src/services/authService'; 
@@ -12,6 +13,9 @@ import RecommendationList from './components/recommendationList/RecommendationLi
 import RecommendationDetails from './components/RecommendationDetails/recommendationDetails';
 
 export const AuthedUserContext = createContext(null);
+
+
+import './components/SignupForm/SignupForm.css'
 
 
 const App = () => {

@@ -1,0 +1,82 @@
+/* Global reset */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Navbar container */
+  .navbar {
+    background-color: #333;
+    padding: 0.5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    height: 40px;
+  }
+  
+  /* Nav list */
+  .nav-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+  
+  /* Nav content (left-aligned logo and other content) */
+  .nav-content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  /* Specific styling for RECiT logo */
+  .nav-content .nav-item .recit-logo {
+    font-size: 1.8rem; /* Increase the font size for the RECiT logo */
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+  
+  /* General link styling */
+  .nav-content .nav-item a,
+  .nav-auth .nav-item a {
+    text-decoration: none;
+    color: white; /* Ensure links are white */
+    padding: 0.5rem 1rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Prevent visited links from showing purple */
+  .nav-content .nav-item a:visited,
+  .nav-auth .nav-item a:visited {
+    color: white; /* Ensure visited links are also white */
+  }
+  
+  /* Hover effect for all links */
+  .nav-content .nav-item a:hover,
+  .nav-auth .nav-item a:hover {
+    background-color: #555;
+  }
+  
+  /* Auth boxes with a white border */
+  .nav-auth .nav-item a {
+    border: 2px solid white; /* White border for auth boxes */
+    border-radius: 4px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+  }
+  
+  /* Hover effect for auth boxes */
+  .nav-auth .nav-item a:hover {
+    border-color: #ddd; /* Slightly lighter border on hover */
+  }
+  
+  /* Flex layout for auth links to keep them in a row */
+  .nav-auth {
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* Ensure space between links */
+  }
+  
