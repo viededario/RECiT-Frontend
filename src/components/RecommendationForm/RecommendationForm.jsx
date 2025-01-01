@@ -26,15 +26,17 @@ const RecommendationForm = (props) => {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    if (recommendationId) props.handleAddRecommendation(formData);
+    if (recommendationId) props.handleUpdateRecommendation(recommendationId, formData);
     else {
       props.handleAddRecommendation(formData);
     }
   };
 
+
   return (
     <main>
       <form onSubmit={handleSubmit}>
+        <h1>{recommendationId ? "Edit Recommendation" : "Create Recommendation"}</h1>
         <label htmlFor="title-input">Title</label>
         <input
           required
