@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import * as RecommendationService from "../../services/recommendationService.js";
 import CommentForm from "../CommentForm/commentForm.jsx";
 import { AuthedUserContext } from "../../App";
+import { Link } from "react-router-dom";
 
 const RecommendationDetails = (props) => {
   const user = useContext(AuthedUserContext);
@@ -46,11 +47,8 @@ const RecommendationDetails = (props) => {
         </p>
         {recommendation.author._id === user._id && (
           <>
-            <button
-              onClick={() => props.handleDeleteRecommendation(recommendationId)}
-            >
-              Delete
-            </button>
+            <Link to={`/recommendations/${recommendationId}/edit`}>Edit</Link>
+            <button onClick={() => props.handleDeleteRecommendation(recommendationId)}>Delete</button>
           </>
         )}
       </header>
