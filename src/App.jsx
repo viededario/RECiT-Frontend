@@ -9,8 +9,9 @@ import SigninForm from './components/SigninForm/SigninForm';
 import RecommendationForm from './components/RecommendationForm/RecommendationForm';
 import * as recommendationService from './services/recommendationService';
 import * as authService from '../src/services/authService'; 
-import RecommendationList from './components/recommendationList/RecommendationList';
+import RecommendationList from './components/RecommendationList/RecommendationList';
 import RecommendationDetails from './components/RecommendationDetails/recommendationDetails';
+import MyRecommendations from './components/MyRecommendations/MyRecommendations';
 
 export const AuthedUserContext = createContext(null);
 
@@ -26,7 +27,7 @@ const App = () => {
   useEffect(() => {
     const fetchAllRecommendations = async () => {
       const recommendationsData = await recommendationService.index();
-      setRecommendations(recommendations);
+      setRecommendations(recommendationsData);
     };
     if (user) fetchAllRecommendations();
   }, [user]);
@@ -81,6 +82,7 @@ const handleUpdateRecommendation = async (recommendationId, recommendationFormDa
           <Route path="/recommendations/:recommendationId" element={<RecommendationDetails handleDeleteRecommendation={handleDeleteRecommendation} />} />
           <Route path="/recommendations/:recommendationId/comments" element={<RecommendationDetails handleAddComment={handleAddComment} />} />
           <Route path="/recommendations/:recommendationId/edit" element={<RecommendationForm handleUpdateRecommendation={handleUpdateRecommendation}/>} />
+          <Route path="/user/recommendations" element={<MyRecommendations recommendations={recommendations} user={user}/> } />
         </>
           
         ) : (
