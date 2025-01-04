@@ -4,6 +4,7 @@ import * as RecommendationService from "../../services/recommendationService.js"
 import CommentForm from "../CommentForm/commentForm.jsx";
 import { AuthedUserContext } from "../../App";
 import { Link } from "react-router-dom";
+import './RecommendationDetails.css'
 
 const RecommendationDetails = (props) => {
   const user = useContext(AuthedUserContext);
@@ -38,12 +39,15 @@ const RecommendationDetails = (props) => {
   return (
     <main>
       <header>
+        <div>
         <p>{recommendation.category.toUpperCase()}</p>
         <h1>{recommendation.title}</h1>
         <p>
-          {recommendation.author.username} posted on
+          {recommendation.author.username} posted on: 
           {new Date(recommendation.createdAt).toLocaleDateString()}
           {new Date(recommendation.createdAt).toLocaleTimeString()}
+          <p>{recommendation.content}</p>
+
         </p>
         {recommendation.author._id === user._id && (
           <>
@@ -51,8 +55,9 @@ const RecommendationDetails = (props) => {
             <button onClick={() => props.handleDeleteRecommendation(recommendationId)}>Delete</button>
           </>
         )}
+        </div>
       </header>
-      <p>{recommendation.content}</p>
+      <div>
       <section>
         <h2>Comments</h2>
         <CommentForm handleAddComment={handleAddComment} />
@@ -69,6 +74,7 @@ const RecommendationDetails = (props) => {
             </div>
           ))}
       </section>
+      </div>
     </main>
   );
 };

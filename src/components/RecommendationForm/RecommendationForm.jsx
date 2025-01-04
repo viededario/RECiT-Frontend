@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import * as recommendationService from "../../services/recommendationService";
+import './RecommendationForm.css'
 
 const RecommendationForm = (props) => {
   const { recommendationId } = useParams();
@@ -46,7 +47,9 @@ const RecommendationForm = (props) => {
           value={formData.title}
           onChange={handleChange}
         />
+        <div>
         <label htmlFor="content-input">Content</label>
+        </div>
         <textarea
           required
           type="text"
@@ -55,6 +58,7 @@ const RecommendationForm = (props) => {
           value={formData.content}
           onChange={handleChange}
         />
+        <div>
         <label htmlFor="category-input">Category</label>
         <select
           required
@@ -75,7 +79,8 @@ const RecommendationForm = (props) => {
           <option value="Vacation">Vacation</option>
           <option value="Other">Other</option>
         </select>
-        <button type="submit">SUBMIT</button>
+        </div>
+        <button type="submit">RECiT</button>
       </form>
     </main>
   );
