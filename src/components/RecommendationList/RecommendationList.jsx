@@ -1,23 +1,45 @@
-import React, { useEffect } from 'react'
+import { React, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 
-export const RecommendationList = (props) => {
+const RecommendationList = ({ recommendations, handleLikeRecommendation, handleDislikeRecommendation }) => {
+  const handleLikeClick = (event, recommendationId) => {
+    event.preventDefault(); // Prevent navigation
+    handleLikeRecommendation(recommendationId);
+  };
+
+  const handleDislikeClick = (event, recommendationId) => {
+    event.preventDefault(); 
+    handleDislikeRecommendation(recommendationId);
+  };
   return (
-<main>
-{props.recommendations.map((recommendation) => (
-    <Link key={recommendation._id} to={`/recommendations/${recommendation._id}` }>
-        <article>
-            <header>
+    <>
+    <main>
+      {recommendations.map((recommendation) => (
+        <div key={recommendation._id}>
+          <Link to={`/recommendations/${recommendation._id}`}>
+            <article>
+              <header>
                 <h2>{recommendation.title}</h2>
-                <p>{recommendation.author.username} posted on 
-                    {new Date(recommendation.createdAt).toLocaleDateString()}
+                <p>
+                  {recommendation.author.username} posted on 
+                  {new Date(recommendation.createdAt).toLocaleDateString()}
                 </p>
-            </header>
-            <p>{recommendation.text}</p>
-        </article>
-        </Link>
-))}
-</main>
+              </header>
+              <p>{recommendation.text}</p>
+            </article>
+          </Link>
+          <div>
+            <button onClick={(e) => handleLikeClick(e, recommendation._id)}>
+              Like ({recommendation.likes.length})
+            </button>
+            <button onClick={(e) => handleDislikeClick(e, recommendation._id)}>
+              Dislike ({recommendation.dislikes.length})
+            </button>
+          </div>
+        </div>
+      ))}
+    </main>
+    </>
   );
 };
 

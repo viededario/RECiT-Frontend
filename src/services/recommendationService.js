@@ -41,6 +41,35 @@ const create = async (recommendationFormData) => {
     }
   }
 
+  const likeRecommendation = async (recommendationId) => {
+    try {
+      const res = await fetch(`${BASE_URL}/${recommendationId}/like`, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+          'content-type': 'application/json',
+        },
+      })
+      return res.json();
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  const dislikeRecommendation = async (recommendationId) => {
+    try {
+      const res = await fetch(`${BASE_URL}/${recommendationId}/dislike`, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+          'content-type': 'application/json',
+        },
+      })
+      return res.json();
+    } catch (error) {
+      console.error(error)
+    }
+  }
 
   const createComment = async (recommendationId, commentFormData) => {
     try {
@@ -88,5 +117,5 @@ const create = async (recommendationFormData) => {
     }
   }
   
-  export { index, create, show, createComment, deleteRecommendation, updateRecommendation };
+  export { index, create, show, createComment, deleteRecommendation, updateRecommendation, likeRecommendation, dislikeRecommendation };
   
