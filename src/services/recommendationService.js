@@ -87,6 +87,51 @@ const create = async (recommendationFormData) => {
       console.log(error);
     }
   }
+
+  const allFavorites = async () => {
+    try {
+      const res = await fetch(`${BASE_URL}/favorites`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+      });
+      return res.json();
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  const handleAddFavorite = async (recommendationId) => {
+    try {
+      const res = await fetch(`${BASE_URL}/${recommendationId}/favorite`, {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+          'Content-Type': 'application/json',
+        },
+      });
+      return res.json();
+    }
+    catch (error) {
+      console.log(error);
+    }
+  }
+
+  const handleDeleteFavorite = async (recommendationId) => { 
+    try {
+      const res = await fetch(`${BASE_URL}/${recommendationId}/favorite`, {
+        method: 'DELETE',
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+      });
+      return res.json();
+    }
+    catch (error) {
+      console.log(error);
+    }
+  }
+
   
-  export { index, create, show, createComment, deleteRecommendation, updateRecommendation };
+  export { index, create, show, createComment, deleteRecommendation, updateRecommendation, handleAddFavorite, allFavorites, handleDeleteFavorite };
   
