@@ -1,5 +1,6 @@
 import { React, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
+import './RecommendationList.css'
 
 const RecommendationList = ({ recommendations, handleLikeRecommendation, handleDislikeRecommendation }) => {
   const handleLikeClick = (event, recommendationId) => {
