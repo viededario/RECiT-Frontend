@@ -19,6 +19,15 @@ const Favorite = () => {
         allFavorites();
     }, []);
 
+    const handleRemoveFavorite = async (id) => {
+        try {
+            await recommendationService.handleDeleteFavorite(id);
+            window.location.reload();
+        } catch (error) {
+            console.error('Error removing favorite:', error);
+        }
+    };
+
     return (
         <div>
             {recommendations.map((recommendation) => (
@@ -29,7 +38,7 @@ const Favorite = () => {
                     <p>Author: {recommendation.author}</p>
                     <p>Likes: {recommendation.likes.length}</p>
                     <p>Dislikes: {recommendation.dislikes.length}</p>
-                    <button onClick={() => recommendationService.handleDeleteFavorite(recommendation._id)}>Remove from Favorites</button>
+                    <button onClick={() => handleRemoveFavorite(recommendation._id)}>Remove from Favorites</button>
                 </div>
             ))}
         </div>
