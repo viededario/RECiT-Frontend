@@ -3,6 +3,7 @@ import { useState, createContext, useEffect } from 'react';
 import NavBar from './components/NavBar/NavBar';
 import Landing from './components/Landing/Landing';
 import Dashboard from './components/Dashboard/Dashboard';
+import Favorite from './components/Favorite/Favorite';
 import SignupForm from './components/SignupForm/SignupForm';
 import SigninForm from './components/SigninForm/SigninForm';
 
@@ -95,11 +96,10 @@ const handleAddComment = async (recommendationId, commentFormData) => {
 };
 
 const handleUpdateRecommendation = async (recommendationId, recommendationFormData) => {
-  const updateRecommendation = await recommendationService.updateRecommendation(recommendationId, recommendationFormData)
-  setRecommendations(recommendations.map((recommendation) => (recommendationId === recommendation._id ? updateRecommendation 
-    : recommendation )));
+  const updatedRecommendation = await recommendationService.update(recommendationId, recommendationFormData);
+  setRecommendations(recommendations.map((recommendation) => (recommendation._id === recommendationId ? updatedRecommendation : recommendation)));
   navigate(`/recommendations/${recommendationId}`);
-};
+}
 
   return (
     <>
@@ -110,6 +110,7 @@ const handleUpdateRecommendation = async (recommendationId, recommendationFormDa
         <>
           <Route path="/" element={<Dashboard user={user} />} />
           <Route path="/recommendations/new" element={<RecommendationForm handleAddRecommendation={handleAddRecommendation} />} />
+          <Route path="/recommendations/favorites" element={<Favorite />} />
           <Route path="/recommendations" element={<RecommendationList recommendations={recommendations} handleLikeRecommendation={handleLikeRecommendation} handleDislikeRecommendation={handleDislikeRecommendation} /> } />
           <Route path="/recommendations/:recommendationId" element={<RecommendationDetails handleDeleteRecommendation={handleDeleteRecommendation} handleLikeRecommendation={handleLikeRecommendation} handleDislikeRecommendation={handleDislikeRecommendation} />}  />
           <Route path="/recommendations/:recommendationId/comments" element={<RecommendationDetails handleAddComment={handleAddComment} />} />

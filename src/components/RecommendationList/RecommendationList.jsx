@@ -1,6 +1,7 @@
-import { React, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import './RecommendationList.css'
+import * as recommendationService from '../../services/recommendationService';
+import './RecommendationList.css';
 
 const RecommendationList = ({ recommendations, handleLikeRecommendation, handleDislikeRecommendation }) => {
   const handleLikeClick = (event, recommendationId) => {
@@ -12,8 +13,8 @@ const RecommendationList = ({ recommendations, handleLikeRecommendation, handleD
     event.preventDefault(); 
     handleDislikeRecommendation(recommendationId);
   };
+
   return (
-    <>
     <main>
       {recommendations.map((recommendation) => (
         <div key={recommendation._id}>
@@ -22,9 +23,18 @@ const RecommendationList = ({ recommendations, handleLikeRecommendation, handleD
               <header>
                 <h2>{recommendation.title}</h2>
                 <p>
-                  {recommendation.author.username} posted on 
-                  {new Date(recommendation.createdAt).toLocaleDateString()}
+                  {recommendation.author?.username} posted on {new Date(recommendation.createdAt).toLocaleDateString()}
                 </p>
+                <button onClick={(e) => { 
+                  e.preventDefault(); 
+                  if (recommendation.isFavorite) {
+                    recommendationService.handleRemoveFavorite(recommendation._id);
+                  } else {
+                    recommendationService.handleAddFavorite(recommendation._id);
+                  }
+                }}>
+                  {recommendation.isFavorite ? 'Remove' : 'Fav'}
+                </button>
               </header>
               <p>{recommendation.text}</p>
             </article>
@@ -40,9 +50,7 @@ const RecommendationList = ({ recommendations, handleLikeRecommendation, handleD
         </div>
       ))}
     </main>
-    </>
   );
 };
-
 
 export default RecommendationList;

@@ -1,12 +1,12 @@
-import { React, useEffect } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom';
 import './MyRecommendations.css'
 
 const MyRecommendations = ({ recommendations, user }) => {
   return (
     <main>
-    {recommendations.map((recommendation) => (
-        recommendation.author.username === user.username ? (
+    {user && recommendations.map((recommendation) => (
+        recommendation.author && recommendation.author.username === user.username ? (
         <Link key={recommendation._id} to={`/recommendations/${recommendation._id}` }>
             <article>
                 <header>
