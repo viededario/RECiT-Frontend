@@ -44,8 +44,40 @@ const handleAddRecommendation = async (recommendationFormData) => {
   navigate('/recommendations');
 };
 
+const handleLikeRecommendation = async (recommendationId) => {
+  try {
+    const { recommendation } = await recommendationService.likeRecommendation(recommendationId);
+
+    // Update the state with the updated recommendation
+    setRecommendations((prevRecommendations) =>
+      prevRecommendations.map((rec) =>
+        rec._id === recommendationId ? recommendation : rec
+      )
+    );
+  } catch (error) {
+    console.error("Error Liking Recommendation", error);
+  }
+};
+
+
+const handleDislikeRecommendation = async (recommendationId) => {
+  try {
+    const { recommendation } = await recommendationService.dislikeRecommendation(recommendationId);
+
+    // Update the state with the updated recommendation
+    setRecommendations((prevRecommendations) =>
+      prevRecommendations.map((rec) =>
+        rec._id === recommendationId ? recommendation : rec
+      )
+    );
+  } catch (error) {
+    console.error("Error Disliking Recommendation", error);
+  }
+};
+
 const handleDeleteRecommendation = async (recommendationId) => {
   console.log('recommendationId', recommendationId);
+  await recommendationService.deleteRecommendation(recommendationId)
   setRecommendations(recommendations.filter((recommendation) => recommendation._id !== recommendationId));
   navigate('/recommendations');
 };
@@ -78,9 +110,9 @@ const handleUpdateRecommendation = async (recommendationId, recommendationFormDa
         <>
           <Route path="/" element={<Dashboard user={user} />} />
           <Route path="/recommendations/new" element={<RecommendationForm handleAddRecommendation={handleAddRecommendation} />} />
-          <Route path="/recommendations" element={<RecommendationList recommendations={recommendations} /> } />
           <Route path="/recommendations/favorites" element={<Favorite />} />
-          <Route path="/recommendations/:recommendationId" element={<RecommendationDetails handleDeleteRecommendation={handleDeleteRecommendation} />} />
+          <Route path="/recommendations" element={<RecommendationList recommendations={recommendations} handleLikeRecommendation={handleLikeRecommendation} handleDislikeRecommendation={handleDislikeRecommendation} /> } />
+          <Route path="/recommendations/:recommendationId" element={<RecommendationDetails handleDeleteRecommendation={handleDeleteRecommendation} handleLikeRecommendation={handleLikeRecommendation} handleDislikeRecommendation={handleDislikeRecommendation} />}  />
           <Route path="/recommendations/:recommendationId/comments" element={<RecommendationDetails handleAddComment={handleAddComment} />} />
           <Route path="/recommendations/:recommendationId/edit" element={<RecommendationForm handleUpdateRecommendation={handleUpdateRecommendation}/>} />
           <Route path="/user/recommendations" element={<MyRecommendations recommendations={recommendations} user={user}/> } />

@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import * as recommendationService from '../../services/recommendationService';
+import './RecommendationList.css';
 
-export const RecommendationList = ({ recommendations, handleLikeRecommendation, handleDislikeRecommendation }) => {
+const RecommendationList = ({ recommendations, handleLikeRecommendation, handleDislikeRecommendation }) => {
   const handleLikeClick = (event, recommendationId) => {
     event.preventDefault(); // Prevent navigation
     handleLikeRecommendation(recommendationId);
@@ -22,8 +23,7 @@ export const RecommendationList = ({ recommendations, handleLikeRecommendation, 
               <header>
                 <h2>{recommendation.title}</h2>
                 <p>
-                  {recommendation.author?.username} posted on 
-                  {new Date(recommendation.createdAt).toLocaleDateString()}
+                  {recommendation.author?.username} posted on {new Date(recommendation.createdAt).toLocaleDateString()}
                 </p>
                 <button onClick={(e) => { 
                   e.preventDefault(); 

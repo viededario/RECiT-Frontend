@@ -1,82 +1,94 @@
-/* Global reset */
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-  }
-  
-  /* Navbar container */
-  .navbar {
-    background-color: #333;
-    padding: 0.5rem 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    height: 40px;
-  }
-  
-  /* Nav list */
-  .nav-list {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-  }
-  
-  /* Nav content (left-aligned logo and other content) */
-  .nav-content {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-  
-  /* Specific styling for RECiT logo */
-  .nav-content .nav-item .recit-logo {
-    font-size: 1.8rem; /* Increase the font size for the RECiT logo */
-    font-weight: bold;
-    letter-spacing: 1px;
-  }
-  
-  /* General link styling */
-  .nav-content .nav-item a,
-  .nav-auth .nav-item a {
-    text-decoration: none;
-    color: white; /* Ensure links are white */
-    padding: 0.5rem 1rem;
-    transition: background-color 0.3s ease;
-  }
-  
-  /* Prevent visited links from showing purple */
-  .nav-content .nav-item a:visited,
-  .nav-auth .nav-item a:visited {
-    color: white; /* Ensure visited links are also white */
-  }
-  
-  /* Hover effect for all links */
-  .nav-content .nav-item a:hover,
-  .nav-auth .nav-item a:hover {
-    background-color: #555;
-  }
-  
-  /* Auth boxes with a white border */
-  .nav-auth .nav-item a {
-    border: 2px solid white; /* White border for auth boxes */
-    border-radius: 4px;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
-  }
-  
-  /* Hover effect for auth boxes */
-  .nav-auth .nav-item a:hover {
-    border-color: #ddd; /* Slightly lighter border on hover */
-  }
-  
-  /* Flex layout for auth links to keep them in a row */
-  .nav-auth {
-    display: flex;
-    align-items: center;
-    gap: 1rem; /* Ensure space between links */
-  }
-  
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background: rgba(0, 0, 0, 0.9);
+  border-bottom: 2px solid rgba(0, 255, 200, 0.3);
+  box-shadow: 0 5px 15px rgba(0, 255, 200, 0.2);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.nav-content {
+  display: flex;
+  margin-right: 20px;
+
+}
+
+nav .logo {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 24px;
+  color: #00ffcc;
+  text-shadow: 0 0 10px rgba(0, 255, 200, 0.8);
+}
+
+nav ul {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: center; 
+}
+
+
+ul.nav-list{
+  display: flex;
+}
+nav ul li {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 16px;
+}
+nav.navbar{
+  display: flex;
+}
+
+nav ul li a {
+  display: flex;
+  justify-content: space-between;
+  text-decoration: none;
+  color: #00ffcc;
+  padding: 5px 10px;
+  border-radius: 8px;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 0 10px rgba(0, 255, 200, 0.2);
+}
+
+nav ul li a:hover {
+  color: #000;
+  background: linear-gradient(135deg, #00ffcc, #00b3ff);
+  box-shadow: 0 0 15px rgba(0, 255, 200, 0.6);
+  transform: scale(1.05);
+}
+
+nav .sign-out {
+  padding: 8px 16px;
+  background: linear-gradient(135deg, #00b3ff, #00ffcc);
+  border: none;
+  border-radius: 10px;
+  color: #000;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(0, 255, 200, 0.5);
+  transition: all 0.3s ease-in-out;
+}
+
+nav .sign-out:hover {
+  background: linear-gradient(135deg, #00ffcc, #00b3ff);
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(0, 255, 200, 0.7);
+}
+
+.nav-auth {
+  display: flex;
+  align-content:flex-start;
+  justify-content: space-between;
+
+}

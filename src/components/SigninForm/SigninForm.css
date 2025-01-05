@@ -1,99 +1,114 @@
-/* Global reset */
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-    color: #333;
-  }
-  
-  /* Main container */
-  main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f3f4f6;
-  }
-  
-  /* Signin content */
-  .signin-content {
-    text-align: center;
-    max-width: 1000px;
-    width: 1000px;
-    padding: 2rem;
-    background-color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-  }
-  
-  /* Title */
-  .signin-title h1 {
-    font-size: 2.5rem;
-    color: #333;
-    margin-bottom: 1rem;
-  }
-  
-  /* Form input styles */
-  .signin-input {
-    margin-bottom: 1rem;
-    text-align: left;
-  }
-  
-  .signin-input label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-size: 1rem;
-    color: #555;
-  }
-  
-  .signin-input input {
-    width: 100%;
-    padding: 0.75rem;
-    font-size: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
-  
-  .signin-input input:focus {
-    border-color: #007bff;
-    outline: none;
-  }
-  
-  /* Buttons container */
-  .signin-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    align-items: center;
-  }
-  
-  /* Button styles */
-  .signin-button, .cancel-button {
-    display: inline-block;
-    background-color: #007bff;
-    color: white;
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    border-radius: 4px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-    cursor: pointer;
-    width: 100%;
-  }
-  
-  .signin-button:hover, .cancel-button:hover {
-    background-color: #0056b3;
-  }
-  
-  /* Cancel button */
-  .cancel-button {
-    background-color: #ccc;
-  }
-  
-  .cancel-button:hover {
-    background-color: #999;
-  }
-  
- 
+/* Main Signin Container */
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  background: #000; /* Dark background */
+  color: #00ffcc;
+  font-family: 'Orbitron', sans-serif;
+}
+
+/* Signin Form Content */
+.signin-content {
+  max-width: 450px;
+  width: 100%;
+  padding: 20px;
+  border: 2px solid rgba(0, 255, 200, 0.5);
+  border-radius: 15px;
+  background: rgba(0, 0, 0, 0.8);
+  box-shadow: 0 0 15px rgba(0, 255, 200, 0.4);
+  text-align: center;
+}
+
+/* Signin Title */
+.signin-title h1 {
+  font-size: 32px;
+  color: #00ffcc;
+  text-shadow: 0 0 15px rgba(0, 255, 200, 0.8);
+  margin-bottom: 10px;
+}
+
+/* Signin Input Fields */
+.signin-input {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.signin-input label {
+  font-size: 14px;
+  margin-bottom: 5px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.signin-input input {
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid rgba(0, 255, 200, 0.5);
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #00ffcc;
+  outline: none;
+  box-shadow: inset 0 0 10px rgba(0, 255, 200, 0.4);
+  transition: all 0.3s ease-in-out;
+}
+
+.signin-input input:focus {
+  border-color: #00ffcc;
+  box-shadow: 0 0 10px rgba(0, 255, 200, 0.8);
+}
+
+/* Error Message */
+p {
+  color: #ff6666;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+/* Signin Buttons */
+.signin-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+/* Log In Button */
+.signin-button,
+.cancel-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  font-family: 'Orbitron', sans-serif;
+  color: #000;
+  background: linear-gradient(135deg, #00b3ff, #00ffcc);
+  box-shadow: 0 0 15px rgba(0, 255, 200, 0.5);
+  transition: all 0.3s ease-in-out;
+}
+
+.signin-button:disabled {
+  background: rgba(0, 255, 200, 0.4);
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.signin-button:hover:enabled,
+.cancel-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(0, 255, 200, 0.7);
+}
+
+/* Cancel Button */
+.cancel-button {
+  background: rgba(255, 255, 255, 0.1);
+  color: #00ffcc;
+}
+
+.cancel-button:hover {
+  background: rgba(0, 255, 200, 0.2);
+}

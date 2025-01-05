@@ -164,4 +164,5 @@ const create = async (recommendationFormData) => {
 
   
   export { index, create, show, createComment, deleteRecommendation, updateRecommendation, handleAddFavorite, allFavorites, handleDeleteFavorite, likeRecommendation, dislikeRecommendation };
+
   
