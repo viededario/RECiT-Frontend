@@ -45,7 +45,7 @@ nav {
   
   input#title-input:focus {
     outline: none;
-    background: linear-gradient(135deg, #00ffcc, #00b3ff);
+
     box-shadow: 0 0 15px rgba(0, 255, 200, 0.8);
   }
   
