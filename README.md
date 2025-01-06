@@ -14,6 +14,8 @@ RECiT simplifies the process of finding trusted recommendations while encouragin
 
 ## Interact Here
 
+- Netlify: 
+
 ![alt text](<Screenshot 2025-01-06 at 2.57.29 PM.png>)
 ![alt text](<Screenshot 2025-01-06 at 3.00.05 PM.png>)
 ![alt text](<Screenshot 2025-01-06 at 3.00.58 PM.png>)
