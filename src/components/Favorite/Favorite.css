@@ -1,0 +1,10 @@
+.favorite-content {
+    display: flex;
+    height: 200px;
+    width: 500px;
+    flex-direction: column;
+    align-content: stretch;
+    align-items: stretch;
+    flex-wrap: nowrap;
+    margin-bottom: 30px;
+}

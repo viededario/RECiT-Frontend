@@ -1,0 +1,63 @@
+/* Navbar styles */
+.navbar {
+  display: flex;
+  justify-content: center; /* Centers the navbar */
+  align-items: center;
+  padding: 10px 20px;
+  background: rgba(0, 0, 0, 0.9);
+  border-bottom: 2px solid rgba(0, 255, 200, 0.3);
+  box-shadow: 0 5px 15px rgba(0, 255, 200, 0.2);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* Navbar container: evenly distributes items */
+.navbar-container {
+  display: flex;
+  justify-content: space-evenly; /* Distributes all items evenly */
+  align-items: center;
+  width: 100%;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-item {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 16px;
+}
+
+.nav-item a {
+  text-decoration: none;
+  color: #00ffcc;
+  padding: 5px 10px;
+  border-radius: 8px;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 0 10px rgba(0, 255, 200, 0.2);
+}
+
+.nav-item a:hover {
+  color: #000;
+  background: linear-gradient(135deg, #00ffcc, #00b3ff);
+  box-shadow: 0 0 15px rgba(0, 255, 200, 0.6);
+  transform: scale(1.05);
+}
+
+/* Logo styles */
+.recit-logo {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 24px;
+  color: #00ffcc;
+  text-shadow: 0 0 10px rgba(0, 255, 200, 0.8);
+}
+
+/* Navbar responsiveness */
+@media (max-width: 768px) {
+  .navbar-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

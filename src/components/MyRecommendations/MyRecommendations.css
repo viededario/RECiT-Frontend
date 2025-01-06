@@ -1,0 +1,53 @@
+main {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    background: linear-gradient(135deg, #090909, #2d2d2d);
+    color: #fff;
+    font-family: 'Fira Code', monospace;
+    margin-right: 50px;
+  }
+  
+  article {
+    padding: 20px;
+    border-radius: 10px;
+    background: rgba(50, 50, 50, 0.8);
+    border: 1px solid #444;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.4), 0 0 30px rgba(0, 255, 255, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-right: 250px;
+  }
+  
+  article:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.6), 0 0 50px rgba(0, 255, 255, 0.3);
+  }
+  
+  header h2 {
+    font-size: 24px;
+    color: #00ffff;
+    margin-bottom: 10px;
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.8);
+  }
+  
+  header p {
+    font-size: 14px;
+    color: #aaa;
+  }
+  
+  p {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  a:hover {
+    text-decoration: wavy;
+  }
+  
