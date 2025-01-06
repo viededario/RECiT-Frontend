@@ -14,26 +14,99 @@ RECiT simplifies the process of finding trusted recommendations while encouragin
 
 ## Interact Here
 
-- Netlify: 
-
+### Landing Page
 ![alt text](<Screenshot 2025-01-06 at 2.57.29 PM.png>)
+
+### Sign Up 
 ![alt text](<Screenshot 2025-01-06 at 3.00.05 PM.png>)
+
+### Sign In
 ![alt text](<Screenshot 2025-01-06 at 3.00.58 PM.png>)
-![alt text](<Screenshot 2025-01-06 at 3.01.59 PM.png>)
+
+### Welcome Page
 ![alt text](<Screenshot 2025-01-06 at 3.03.04 PM.png>)
+
+### Recommendations
 ![alt text](<Screenshot 2025-01-06 at 3.04.59 PM.png>)
+
+### Favorites
 ![alt text](<Screenshot 2025-01-06 at 3.11.32 PM.png>)
+
+### My Recommendations
 ![alt text](<Screenshot 2025-01-06 at 3.06.25 PM.png>)
+
+### Create A Recommendation
 ![alt text](<Screenshot 2025-01-06 at 3.08.13 PM.png>)
+
+### Single Recommendation
+
 ![alt text](<Screenshot 2025-01-06 at 3.10.11 PM.png>)
 
 
-## Deployed Link
-- Deployed Link: https://recit-app.netlify.app/
+## Deployed Website
+- Deployed Website: https://recit-app.netlify.app/
 
 
 ## GitHub Repos
 - BackEnd: https://github.com/viededario/RECiT-Backend
 - FrontEnd: https://github.com/viededario/RECiT-Frontend
 
+## ERD Diagram
+![alt text](image.png)
+
+## Component Diagram
+![alt text](image-1.png)
+
+## Routes
+
+
+### Sign-up
+
+| Action  | Route       | HTTP Verb |
+|---------|-------------|-----------|
+| Index   | `/sign-up`  | GET       |
+| Create  | `/sign-up`  | POST      |
+
+### Sign-in
+
+| Action  | Route           | HTTP Verb |
+|---------|-----------------|-----------|
+| Index   | `/user/sign-in` | GET       |
+| Create  | `/user/sign-in` | POST      |
+
+### My Recommendations
+
+| Action | Route                                   | HTTP Verb |
+|--------|----------------------------------------|-----------|
+| Index  | `/user/recommendations`                 | GET       |
+| Show   | `/user/recommendations/:recommendationId` | GET       |
+
+### My Favorites
+
+| Action | Route                          | HTTP Verb |
+|--------|--------------------------------|-----------|
+| Index  | `/user/favorites`              | GET       |
+| Show   | `/user/favorites/:favoritesId` | GET       |
+
+### Recommendations
+
+| Action  | Route                                   | HTTP Verb |
+|---------|----------------------------------------|-----------|
+| Index   | `/recommendations`                     | GET       |
+| Create  | `/recommendations`                     | POST      |
+| Show    | `/recommendations/:recommendationId`   | GET       |
+| Edit    | `/recommendations/:recommendationId`   | GET       |
+| Update  | `/recommendations/:recommendationId`   | PUT       |
+| Delete  | `/recommendations/:recommendationId`   | DELETE    |
+
+### Comments
+
+| Action | Route                                                   | HTTP Verb |
+|--------|--------------------------------------------------------|-----------|
+| Create | `/recommendations/:recommendationId/comments`          | POST      |
+| Delete | `/recommendations/:recommendationId/comments/:commentId` | DELETE    |
+
+
 ## Resources
+
+- Stack Overflow, ChatGPT, GA lectures, GA labs, and Google. 
