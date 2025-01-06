@@ -12,8 +12,8 @@ const SignupForm = (props) => {
     passwordConf: '',
   });
 
-  const updateMessage = (msg) => {
-    setMessage(msg);
+  const updateMessage = (message) => {
+    setMessage(message);
   };
 
   const handleChange = (e) => {
@@ -33,9 +33,13 @@ const SignupForm = (props) => {
 
   const { name, username, password, passwordConf } = formData;
 
+
   const isFormInvalid = () => {
     return !(name && username && password && password === passwordConf);
   };
+
+
+  
 
   return (
     <main>
