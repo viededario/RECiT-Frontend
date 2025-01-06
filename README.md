@@ -26,3 +26,14 @@ RECiT simplifies the process of finding trusted recommendations while encouragin
 ![alt text](<Screenshot 2025-01-06 at 3.06.25 PM.png>)
 ![alt text](<Screenshot 2025-01-06 at 3.08.13 PM.png>)
 ![alt text](<Screenshot 2025-01-06 at 3.10.11 PM.png>)
+
+
+## Deployed Link
+- Deployed Link: https://recit-app.netlify.app/
+
+
+## GitHub Repos
+- BackEnd: https://github.com/viededario/RECiT-Backend
+- FrontEnd: https://github.com/viededario/RECiT-Frontend
+
+## Resources
