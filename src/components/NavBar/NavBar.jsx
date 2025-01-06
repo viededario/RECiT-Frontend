@@ -10,7 +10,6 @@ const NavBar = ({ user, handleSignout }) => {
           <ul className="nav-list">
             <div className="nav-content">
             <li className="nav-item"><Link to="/" className="recit-logo">RECiT</Link></li>
-              <li className="nav-item"><Link to="/">Home</Link></li>
               <li className="nav-item"><Link to="/recommendations">Recommendations</Link></li>
               <li className="nav-item"><Link to="/user/recommendations">My Recommendations</Link></li>
               <li className="nav-item"><Link to="/user/favorites">Favorites</Link></li>

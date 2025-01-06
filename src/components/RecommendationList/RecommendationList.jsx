@@ -17,7 +17,7 @@ const RecommendationList = ({ recommendations, handleLikeRecommendation, handleD
   return (
     <main>
       {recommendations.map((recommendation) => (
-        <div key={recommendation._id}>
+        <div key={recommendation._id} className='recommendation-content'>
           <Link to={`/recommendations/${recommendation._id}`}>
             <article>
               <header>
