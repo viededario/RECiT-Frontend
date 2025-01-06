@@ -5,14 +5,12 @@ const NavBar = ({ user, handleSignout }) => {
   return (
     <nav className="navbar">
       <ul className="navbar-container">
-        {/* Left Section: Logo */}
         <li className="nav-item">
           <Link to="/" className="recit-logo">RECiT</Link>
         </li>
 
         {user ? (
           <>
-            <li className="nav-item"><Link to="/">Home</Link></li>
             <li className="nav-item"><Link to="/recommendations">Recommendations</Link></li>
             <li className="nav-item"><Link to="/user/recommendations">My Recommendations</Link></li>
             <li className="nav-item"><Link to="/user/favorites">Favorites</Link></li>
