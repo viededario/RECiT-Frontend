@@ -110,7 +110,7 @@ const handleUpdateRecommendation = async (recommendationId, recommendationFormDa
         <>
           <Route path="/" element={<Dashboard user={user} />} />
           <Route path="/recommendations/new" element={<RecommendationForm handleAddRecommendation={handleAddRecommendation} />} />
-          <Route path="/recommendations/favorites" element={<Favorite />} />
+          <Route path="/user/favorites" element={<Favorite />} />
           <Route path="/recommendations" element={<RecommendationList recommendations={recommendations} handleLikeRecommendation={handleLikeRecommendation} handleDislikeRecommendation={handleDislikeRecommendation} /> } />
           <Route path="/recommendations/:recommendationId" element={<RecommendationDetails handleDeleteRecommendation={handleDeleteRecommendation} handleLikeRecommendation={handleLikeRecommendation} handleDislikeRecommendation={handleDislikeRecommendation} />}  />
           <Route path="/recommendations/:recommendationId/comments" element={<RecommendationDetails handleAddComment={handleAddComment} />} />
