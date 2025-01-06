@@ -1,6 +1,7 @@
-nav {
+/* Navbar styles */
+.navbar {
   display: flex;
-  justify-content: space-between;
+  justify-content: center; /* Centers the navbar */
   align-items: center;
   padding: 10px 20px;
   background: rgba(0, 0, 0, 0.9);
@@ -13,47 +14,24 @@ nav {
   z-index: 1000;
 }
 
-.nav-content {
+/* Navbar container: evenly distributes items */
+.navbar-container {
   display: flex;
-  margin-right: 20px;
-
-}
-
-nav .logo {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 24px;
-  color: #00ffcc;
-  text-shadow: 0 0 10px rgba(0, 255, 200, 0.8);
-}
-
-nav ul {
-  display: flex;
-  gap: 20px;
+  justify-content: space-evenly; /* Distributes all items evenly */
+  align-items: center;
+  width: 100%;
   list-style: none;
-  margin: 0;
   padding: 0;
-  align-items: center; 
+  margin: 0;
 }
 
-
-ul.nav-list{
-  display: flex;
-  
-  justify-content: space-between;
-}
-nav ul li {
-  display: flex;
-  justify-content: space-between;
+/* Navbar items */
+.nav-item {
   font-family: 'Orbitron', sans-serif;
   font-size: 16px;
 }
-nav.navbar{
-  display: flex;
-}
 
-nav ul li a {
-  display: flex;
-  justify-content: space-between;
+.nav-item a {
   text-decoration: none;
   color: #00ffcc;
   padding: 5px 10px;
@@ -62,35 +40,25 @@ nav ul li a {
   box-shadow: 0 0 10px rgba(0, 255, 200, 0.2);
 }
 
-nav ul li a:hover {
+.nav-item a:hover {
   color: #000;
   background: linear-gradient(135deg, #00ffcc, #00b3ff);
   box-shadow: 0 0 15px rgba(0, 255, 200, 0.6);
   transform: scale(1.05);
 }
 
-nav .sign-out {
-  padding: 8px 16px;
-  background: linear-gradient(135deg, #00b3ff, #00ffcc);
-  border: none;
-  border-radius: 10px;
-  color: #000;
+/* Logo styles */
+.recit-logo {
   font-family: 'Orbitron', sans-serif;
-  font-size: 14px;
-  cursor: pointer;
-  box-shadow: 0 0 15px rgba(0, 255, 200, 0.5);
-  transition: all 0.3s ease-in-out;
+  font-size: 24px;
+  color: #00ffcc;
+  text-shadow: 0 0 10px rgba(0, 255, 200, 0.8);
 }
 
-nav .sign-out:hover {
-  background: linear-gradient(135deg, #00ffcc, #00b3ff);
-  transform: scale(1.05);
-  box-shadow: 0 0 20px rgba(0, 255, 200, 0.7);
-}
-
-.nav-auth {
-  display: flex;
-  align-content:flex-start;
-  justify-content: space-between;
-
+/* Navbar responsiveness */
+@media (max-width: 768px) {
+  .navbar-container {
+    flex-direction: column;
+    gap: 10px;
+  }
 }
