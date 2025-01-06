@@ -25,6 +25,12 @@ const RecommendationList = ({ recommendations, handleLikeRecommendation, handleD
                 <p>
                   {recommendation.author?.username} posted on {new Date(recommendation.createdAt).toLocaleDateString()}
                 </p>
+                <button onClick={(e) => handleLikeClick(e, recommendation._id)}>
+              Like ({recommendation.likes.length})
+            </button>
+            <button onClick={(e) => handleDislikeClick(e, recommendation._id)}>
+              Dislike ({recommendation.dislikes.length})
+            </button>
                 <button onClick={(e) => { 
                   e.preventDefault(); 
                   if (recommendation.isFavorite) {
@@ -40,12 +46,7 @@ const RecommendationList = ({ recommendations, handleLikeRecommendation, handleD
             </article>
           </Link>
           <div>
-            <button onClick={(e) => handleLikeClick(e, recommendation._id)}>
-              Like ({recommendation.likes.length})
-            </button>
-            <button onClick={(e) => handleDislikeClick(e, recommendation._id)}>
-              Dislike ({recommendation.dislikes.length})
-            </button>
+           
           </div>
         </div>
       ))}
