@@ -6,13 +6,11 @@ import './RecommendationList.css';
 const RecommendationList = ({ recommendations, handleLikeRecommendation, handleDislikeRecommendation }) => {
   const [favorites, setFavorites] = useState({});
 
-  // Load favorites from localStorage on mount
   useEffect(() => {
     const storedFavorites = JSON.parse(localStorage.getItem('favorites')) || {};
     setFavorites(storedFavorites);
   }, []);
 
-  // Save favorites to localStorage whenever they change
   useEffect(() => {
     localStorage.setItem('favorites', JSON.stringify(favorites));
   }, [favorites]);
@@ -38,7 +36,6 @@ const RecommendationList = ({ recommendations, handleLikeRecommendation, handleD
         await recommendationService.handleAddFavorite(recommendationId);
       }
 
-      // Toggle the favorite status in the state
       setFavorites((prevFavorites) => ({
         ...prevFavorites,
         [recommendationId]: !isCurrentlyFavorite,
@@ -61,10 +58,10 @@ const RecommendationList = ({ recommendations, handleLikeRecommendation, handleD
                   {new Date(recommendation.createdAt).toLocaleDateString()}
                 </p>
                 <button onClick={(e) => handleLikeClick(e, recommendation._id)}>
-                  ✚ {recommendation.likes.length}
+                  🔥 {recommendation.likes.length}
                 </button>
                 <button onClick={(e) => handleDislikeClick(e, recommendation._id)}>
-                  − {recommendation.dislikes.length}
+                  💩 {recommendation.dislikes.length}
                 </button>
                 <button
                   onClick={(e) => handleFavoriteClick(e, recommendation._id)}

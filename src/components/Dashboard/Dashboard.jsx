@@ -5,7 +5,7 @@ const Dashboard = ({ user }) => {
       <main>
         <div className='dashboard-content'>
         <div className='dashboard-welcome-message'>
-        <h1>Welcome, {user.username}</h1>
+        <h1 className='Welcome'>Welcome, {user.username}</h1>
         </div>
         
         </div>
