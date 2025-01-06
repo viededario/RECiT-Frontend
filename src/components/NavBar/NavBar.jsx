@@ -14,6 +14,7 @@ const NavBar = ({ user, handleSignout }) => {
               <li className="nav-item"><Link to="/recommendations">Recommendations</Link></li>
               <li className="nav-item"><Link to="/recommendations/new">New Recommendation</Link></li>
               <li className="nav-item"><Link to="/user/recommendations">My Recommendations</Link></li>
+              <li className="nav-item"><Link to="/user/favorites">Favorites</Link></li>
             </div>
             <div className="nav-auth">
             <li className="nav-item"><Link to="" onClick={handleSignout}>Sign Out</Link></li>
