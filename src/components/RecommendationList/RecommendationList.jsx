@@ -4,14 +4,48 @@ import * as recommendationService from '../../services/recommendationService';
 import './RecommendationList.css';
 
 const RecommendationList = ({ recommendations, handleLikeRecommendation, handleDislikeRecommendation }) => {
+  const [favorites, setFavorites] = useState({});
+
+  // Load favorites from localStorage on mount
+  useEffect(() => {
+    const storedFavorites = JSON.parse(localStorage.getItem('favorites')) || {};
+    setFavorites(storedFavorites);
+  }, []);
+
+  // Save favorites to localStorage whenever they change
+  useEffect(() => {
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+  }, [favorites]);
+
   const handleLikeClick = (event, recommendationId) => {
-    event.preventDefault(); // Prevent navigation
+    event.preventDefault();
     handleLikeRecommendation(recommendationId);
   };
 
   const handleDislikeClick = (event, recommendationId) => {
-    event.preventDefault(); 
+    event.preventDefault();
     handleDislikeRecommendation(recommendationId);
+  };
+
+  const handleFavoriteClick = async (event, recommendationId) => {
+    event.preventDefault();
+    const isCurrentlyFavorite = favorites[recommendationId];
+
+    try {
+      if (isCurrentlyFavorite) {
+        await recommendationService.handleRemoveFavorite(recommendationId);
+      } else {
+        await recommendationService.handleAddFavorite(recommendationId);
+      }
+
+      // Toggle the favorite status in the state
+      setFavorites((prevFavorites) => ({
+        ...prevFavorites,
+        [recommendationId]: !isCurrentlyFavorite,
+      }));
+    } catch (error) {
+      console.error('Error updating favorite status:', error);
+    }
   };
 
   return (
@@ -23,31 +57,25 @@ const RecommendationList = ({ recommendations, handleLikeRecommendation, handleD
               <header>
                 <h2>{recommendation.title}</h2>
                 <p>
-                  {recommendation.author?.username} posted on {new Date(recommendation.createdAt).toLocaleDateString()}
+                  {recommendation.author?.username} posted on{' '}
+                  {new Date(recommendation.createdAt).toLocaleDateString()}
                 </p>
                 <button onClick={(e) => handleLikeClick(e, recommendation._id)}>
-              Like ({recommendation.likes.length})
-            </button>
-            <button onClick={(e) => handleDislikeClick(e, recommendation._id)}>
-              Dislike ({recommendation.dislikes.length})
-            </button>
-                <button onClick={(e) => { 
-                  e.preventDefault(); 
-                  if (recommendation.isFavorite) {
-                    recommendationService.handleRemoveFavorite(recommendation._id);
-                  } else {
-                    recommendationService.handleAddFavorite(recommendation._id);
-                  }
-                }}>
-                  {recommendation.isFavorite ? 'Remove' : 'Fav'}
+                  ✚ {recommendation.likes.length}
+                </button>
+                <button onClick={(e) => handleDislikeClick(e, recommendation._id)}>
+                  − {recommendation.dislikes.length}
+                </button>
+                <button
+                  onClick={(e) => handleFavoriteClick(e, recommendation._id)}
+                  className={favorites[recommendation._id] ? 'fav-button active' : 'fav-button'}
+                >
+                  {favorites[recommendation._id] ? 'Remove' : 'Fav'}
                 </button>
               </header>
               <p>{recommendation.text}</p>
             </article>
           </Link>
-          <div>
-           
-          </div>
         </div>
       ))}
     </main>
