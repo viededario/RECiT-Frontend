@@ -96,7 +96,7 @@ const handleAddComment = async (recommendationId, commentFormData) => {
 };
 
 const handleUpdateRecommendation = async (recommendationId, recommendationFormData) => {
-  const updatedRecommendation = await recommendationService.update(recommendationId, recommendationFormData);
+  const updatedRecommendation = await recommendationService.updateRecommendation(recommendationId, recommendationFormData);
   setRecommendations(recommendations.map((recommendation) => (recommendation._id === recommendationId ? updatedRecommendation : recommendation)));
   navigate(`/recommendations/${recommendationId}`);
 }

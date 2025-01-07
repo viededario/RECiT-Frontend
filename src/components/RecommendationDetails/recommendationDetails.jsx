@@ -67,8 +67,7 @@ const RecommendationDetails = (props) => {
             <div key={comment._id}>
               <p>{comment.text}</p>
               <p>
-                {comment.author.username} posted on
-                {new Date(comment.createdAt).toLocaleDateString()}
+                {comment.author.username} posted on: {new Date(comment.createdAt).toLocaleDateString()}
                 {new Date(comment.createdAt).toLocaleTimeString()}
               </p>
             </div>
